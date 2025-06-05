@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +21,7 @@
     }
 
     h1 {
-      font-family: 'Pacifico', cursive;
+      font-family: 'Alex Brush', Alex Brush;
       font-size: 4rem;
       margin: 0.5rem 0;
       animation: fadeInDown 1.5s ease-out;
@@ -56,12 +55,14 @@
     .button-row {
       display: flex;
       justify-content: space-between;
+      gap: 2rem;
+      width: 100%;
+      max-width: 500px;
       margin-top: 2rem;
-      width: 90%;
-      max-width: 700px;
     }
 
-    .gift-button, .deep-button {
+    .gift-button,
+    .heart-button {
       padding: 1rem 2rem;
       font-size: 1.2rem;
       font-weight: bold;
@@ -73,8 +74,198 @@
       transition: transform 0.2s;
     }
 
-    .gift-button:hover, .deep-button:hover {
+    .heart-button {
+      color: #c2185b;
+    }
+
+    .gift-button:hover,
+    .heart-button:hover {
       transform: scale(1.1);
+    }
+
+    .gift-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      text-align: center;
+      z-index: 1000;
+      animation: popupBounce 0.6s ease-out;
+      width: 350px;
+      max-width: 90vw;
+      user-select: none;
+    }
+
+    .gift-popup h2 {
+      color: #d32f2f;
+      font-family: 'Alex Brush', Alex Brush;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    }
+
+    .envelope {
+      width: 180px;
+      height: 120px;
+      margin: 0 auto 1.5rem auto;
+      cursor: pointer;
+      position: relative;
+      perspective: 1000px;
+    }
+
+    .envelope-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s;
+    }
+
+    .envelope.open .envelope-inner {
+      transform: rotateX(-140deg);
+    }
+
+    .envelope-front,
+    .envelope-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      backface-visibility: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .envelope-front {
+      background: #fff0f0;
+      background-image: linear-gradient(135deg, #ff8a8a, #ff4d4d);
+      border: 2px solid #d32f2f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      color: #d32f2f;
+      transform-origin: top center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .envelope-front::before {
+      content: "💌";
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 4.5rem;
+    }
+
+    .envelope-back {
+      background: #fff6f6;
+      border: 2px solid #d32f2f;
+      transform: rotateX(180deg);
+      border-radius: 0 0 15px 15px;
+    }
+
+    .letter {
+      font-size: 1.15rem;
+      color: #333;
+      line-height: 1.4;
+      text-align: left;
+      max-height: 220px;
+      overflow: hidden;
+      padding: 10px 15px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      user-select: text;
+      white-space: pre-wrap;
+      margin: 0 auto;
+      width: 90%;
+    }
+
+    .flip-card {
+      background: transparent;
+      width: 160px;
+      height: 200px;
+      perspective: 1000px;
+      margin: 1rem;
+      display: inline-block;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 1rem;
+    }
+
+    .flip-card-front {
+      background: #ff4d4d;
+      color: white;
+    }
+
+    .flip-card-back {
+      background: #fff;
+      color: #ff4d4d;
+      transform: rotateY(180deg);
+    }
+
+    .card-container {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .close-button {
+      margin-top: 1.5rem;
+      padding: 0.6rem 1.4rem;
+      font-size: 1rem;
+      background: #d32f2f;
+      border: none;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .floating-heart {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png') no-repeat center center / contain;
+      animation: floatHeart 10s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatHeart {
+      0% { bottom: -50px; opacity: 0; transform: translateX(0) scale(0.8); }
+      50% { opacity: 1; }
+      100% { bottom: 100%; opacity: 0; transform: translateX(-50px) scale(1.2); }
     }
 
     @keyframes float {
@@ -91,6 +282,12 @@
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    @keyframes popupBounce {
+      0% { transform: translate(-50%, -50%) scale(0.7); opacity: 0; }
+      60% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(1); }
+    }
   </style>
 </head>
 <body>
@@ -100,10 +297,172 @@
     <p>Thank you for always being there with your happiness and beauty.</p>
     <p>You’re always in the center of my heart, you’re the girl I am always thinking of, you're the girl of my dreams</p>
     <p>I made this little website just to show how much I love and respect you! 💐</p>
+
     <div class="button-row">
-      <button class="deep-button" onclick="alert('This is the deeper envelope 💌 - Add your special text here.')">From My Heart 💌</button>
-      <button class="gift-button" onclick="alert('This is your gift envelope 💖 - Add your sweet text here.')">Gift for you 💖</button>
+      <button class="gift-button" onclick="showGift()">Gift for you 💖</button>
+      <button class="heart-button" onclick="showHeart()">From My Heart 💭</button>
     </div>
   </div>
+
+  <div id="cardContainer" class="card-container"></div>
+
+  <!-- Floating hearts -->
+  <div class="floating-heart" style="left: 10%; animation-delay: 0s;"></div>
+  <div class="floating-heart" style="left: 35%; animation-delay: 1s;"></div>
+  <div class="floating-heart" style="left: 55%; animation-delay: 2s;"></div>
+  <div class="floating-heart" style="left: 75%; animation-delay: 3s;"></div>
+  <div class="floating-heart" style="left: 25%; animation-delay: 4s;"></div>
+
+  <!-- Gift popup -->
+  <div id="giftPopup" class="gift-popup">
+    <h2>A gift for u alq 🌹</h2>
+    <div class="envelope" id="envelope">
+      <div class="envelope-inner">
+        <div class="envelope-front"></div>
+        <div class="envelope-back"></div>
+      </div>
+    </div>
+    <div id="letter" class="letter" style="display:none;"></div>
+    <button class="close-button" onclick="closeGift()">Close</button>
+  </div>
+
+  <!-- Heart popup -->
+  <div id="heartPopup" class="gift-popup">
+    <h2>From My Heart 💭</h2>
+    <div class="envelope" id="envelope2">
+      <div class="envelope-inner">
+        <div class="envelope-front"></div>
+        <div class="envelope-back"></div>
+      </div>
+    </div>
+    <div id="letter2" class="letter" style="display:none;"></div>
+    <button class="close-button" onclick="closeHeart()">Close</button>
+  </div>
+
+  <script>
+    const cardContainer = document.getElementById('cardContainer');
+    const cardMessages = [
+      "You make me laugh",
+      "You're pretty/cute/hot",
+      "You light up my world",
+      "You’re my dream",
+      "Your eyes are gorgeous",
+      "You make me forget my worries",
+      "I am feeling lucky to have met you",
+      "Your height doesn’t matter, only your heart 💖"
+    ];
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function createCard(message) {
+      const flipCard = document.createElement('div');
+      flipCard.className = 'flip-card';
+      flipCard.onclick = () => flipCard.classList.toggle('flipped');
+
+      const inner = document.createElement('div');
+      inner.className = 'flip-card-inner';
+
+      const front = document.createElement('div');
+      front.className = 'flip-card-front';
+      front.textContent = '❤️';
+
+      const back = document.createElement('div');
+      back.className = 'flip-card-back';
+      back.textContent = message;
+
+      inner.appendChild(front);
+      inner.appendChild(back);
+      flipCard.appendChild(inner);
+      return flipCard;
+    }
+
+    window.onload = () => {
+      const shuffled = shuffle([...cardMessages]);
+      shuffled.forEach(msg => {
+        cardContainer.appendChild(createCard(msg));
+      });
+    };
+
+    const envelope = document.getElementById('envelope');
+    const envelope2 = document.getElementById('envelope2');
+    const giftPopup = document.getElementById('giftPopup');
+    const heartPopup = document.getElementById('heartPopup');
+    const letter = document.getElementById('letter');
+    const letter2 = document.getElementById('letter2');
+
+    let isOpen = false;
+    let isHeartOpen = false;
+
+    const letterText = `Dear Alq 🌹,
+
+I may not be the best guy, but I will try to improve myself in the right way.
+Even if you don’t want to be my girlfriend, I will always be glad I told you this.
+I like you more than words can say.
+My heart is forever yours 💖`;
+
+    const heartText = `from when my friend from 7th grade talked to you he told me about you,
+  i started paying more attention to you and then i realized that you are way more beautiful than i expected.
+  So even if you dont like me back i wanted to point that out.💭💌`;
+
+    function showGift() {
+      giftPopup.style.display = 'block';
+      isOpen = false;
+      letter.style.display = 'none';
+      letter.textContent = '';
+      envelope.classList.remove('open');
+    }
+
+    function showHeart() {
+      heartPopup.style.display = 'block';
+      isHeartOpen = false;
+      letter2.style.display = 'none';
+      letter2.textContent = '';
+      envelope2.classList.remove('open');
+    }
+
+    function closeGift() {
+      giftPopup.style.display = 'none';
+      isOpen = false;
+    }
+
+    function closeHeart() {
+      heartPopup.style.display = 'none';
+      isHeartOpen = false;
+    }
+
+    envelope.addEventListener('click', () => {
+      if (isOpen) return;
+      isOpen = true;
+      envelope.classList.add('open');
+      typeLetter(letter, letterText);
+    });
+
+    envelope2.addEventListener('click', () => {
+      if (isHeartOpen) return;
+      isHeartOpen = true;
+      envelope2.classList.add('open');
+      typeLetter(letter2, heartText);
+    });
+
+    function typeLetter(target, text) {
+      target.style.display = 'block';
+      let i = 0;
+      target.textContent = '';
+      function typing() {
+        if (i < text.length) {
+          target.textContent += text.charAt(i);
+          i++;
+          setTimeout(typing, 40);
+        }
+      }
+      typing();
+    }
+  </script>
 </body>
 </html>
