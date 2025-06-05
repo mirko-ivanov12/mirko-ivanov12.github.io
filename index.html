@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Aleksandra ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #ffb6c1, #ff4d4d);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 0;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 4rem;
+      margin: 0.5rem 0;
+      animation: fadeInDown 1.5s ease-out;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin: 1rem 0;
+      max-width: 700px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      animation: fadeIn 2s ease-in;
+    }
+
+    .emojis {
+      font-size: 3rem;
+      margin: 2rem 0;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      animation: fadeInUp 2s ease-out;
+      text-align: center;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+      width: 90%;
+      max-width: 700px;
+    }
+
+    .gift-button, .deep-button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      background-color: #fff;
+      color: #ff4d4d;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .gift-button:hover, .deep-button:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>For Aleksandra ❤️</h1>
+    <div class="emojis">💖 💐 💕</div>
+    <p>Thank you for always being there with your happiness and beauty.</p>
+    <p>You’re always in the center of my heart, you’re the girl I am always thinking of, you're the girl of my dreams</p>
+    <p>I made this little website just to show how much I love and respect you! 💐</p>
+    <div class="button-row">
+      <button class="deep-button" onclick="alert('This is the deeper envelope 💌 - Add your special text here.')">From My Heart 💌</button>
+      <button class="gift-button" onclick="alert('This is your gift envelope 💖 - Add your sweet text here.')">Gift for you 💖</button>
+    </div>
+  </div>
+</body>
+</html>
